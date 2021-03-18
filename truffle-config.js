@@ -2,9 +2,10 @@
 // defines deployment and compilation settings
 
 require('regenerator-runtime/runtime')
-const LedgerWalletProvider = require('truffle-ledger-provider');
+const HDWalletProvider = require("@truffle/hdwallet-provider");
 
-const INFURA_KEY = "";
+
+require('dotenv').config();
 
 module.exports = {
   networks: {
@@ -18,35 +19,18 @@ module.exports = {
     },
 
     ropsten: {
-      provider: new LedgerWalletProvider(
-        {
-          networkId: 3,
-          path: "44'/60'/0'/0/0",
-          askConfirm: false,
-          accountsLength: 1,
-          accountsOffset: 0
-        },
-        `https://ropsten.infura.io/v3/${INFURA_KEY}`
-      ),
+      provider: function() {
+        return new HDWalletProvider(process.env.MNEMONIC, process.env.WEB3_HTTP_PROVIDER_ROPSTEN)
+      },
       network_id: 3,
       gas: 5250000,
-      confirmations: 2,
-      timeoutBlocks: 200,
-      skipDryRun: true,
       //from: ''
     },
 
     mainnet: {
-      provider: new LedgerWalletProvider(
-        {
-          networkId: 1,
-          path: "44'/60'/0'/0/0",
-          askConfirm: true,
-          accountsLength: 1,
-          accountsOffset: 0
-        },
-        `https://mainnet.infura.io/v3/${INFURA_KEY}`
-      ),
+      provider: function() {
+        return new HDWalletProvider(process.env.MNEMONIC, process.env.WEB3_HTTP_PROVIDER_MAINNET)
+      },
       network_id: 1
     },
   },

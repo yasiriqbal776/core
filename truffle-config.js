@@ -33,6 +33,19 @@ module.exports = {
       },
       network_id: 1
     },
+
+    binance_test: {
+      provider: function() {
+        return new HDWalletProvider(process.env.MNEMONIC, process.env.WEB3_HTTP_PROVIDER_BINANCE_TEST)
+      },
+      network_id: 97
+    },
+    binance: {
+      provider: function() {
+        return new HDWalletProvider(process.env.MNEMONIC, process.env.WEB3_HTTP_PROVIDER_BINANCE_MAINNET)
+      },
+      network_id: 56
+    },
   },
 
   compilers: {

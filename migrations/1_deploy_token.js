@@ -1,7 +1,7 @@
 // deploy GYSR token
 
-const GeyserToken = artifacts.require('GeyserToken');
+const PolarisToken = artifacts.require('PolarisToken');
 
 module.exports = function (deployer) {
-    deployer.deploy(GeyserToken);
+    // deployer.deploy(PolarisToken);
 }

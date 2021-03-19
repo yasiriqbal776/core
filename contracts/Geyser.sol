@@ -261,7 +261,10 @@ contract Geyser is IGeyser, ReentrancyGuard {
             "Geyser: withdraw amount exceeds balance"
         );
         // do transfer
-        _gysr.safeTransfer(msg.sender, amount);
+        //Burn Half tokens and half transfer to owner address
+        uint256 burnedToken = amount / 2;
+        _gysr.safeTransfer(address(0), burnedToken);
+        _gysr.safeTransfer(msg.sender, burnedToken);
 
         emit GysrWithdrawn(amount);
     }

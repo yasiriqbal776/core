@@ -64,5 +64,8 @@ module.exports = {
     timeout: 5000
   },
 
-  plugins: ["truffle-contract-size"]
+  plugins: ["truffle-contract-size", "truffle-plugin-verify"],
+  api_keys: {
+    bscscan: process.env.BSCSCAN_API_KEY,
+  }
 };

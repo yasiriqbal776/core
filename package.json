@@ -26,6 +26,7 @@
     "@truffle/hdwallet-provider": "^1.2.3",
     "dotenv": "^8.2.0",
     "ethereumjs-wallet": "^1.0.1",
+    "truffle-plugin-verify": "^0.5.7",
     "truffle-wallet-provider": "0.0.5"
   },
   "scripts": {

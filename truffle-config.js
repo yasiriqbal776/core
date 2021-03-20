@@ -44,7 +44,9 @@ module.exports = {
       provider: function() {
         return new HDWalletProvider(process.env.MNEMONIC, process.env.WEB3_HTTP_PROVIDER_BINANCE_MAINNET)
       },
-      network_id: 56
+      network_id: 56,
+      gasPrice: 10000000000,
+      skipDryRun: true,
     },
   },
 

@@ -10,24 +10,24 @@ SPDX-License-Identifier: MIT
 
 pragma solidity ^0.6.12;
 
-import "./IGeyserFactory.sol";
+import "./ISuperNovaFactory.sol";
 import "./Geyser.sol";
 
-contract SuperNovaFactory is IGeyserFactory {
+contract SuperNovaFactory is ISuperNovaFactory {
     // fields
     mapping(address => bool) public map;
     address[] public list;
-    address private _gysr;
+    address private _supernova;
 
     /**
-     * @param gysr_ address of GYSR token
+     * @param supernova_ address of SuperNova token
      */
-    constructor(address gysr_) public {
-        _gysr = gysr_;
+    constructor(address supernova_) public {
+        _supernova = supernova_;
     }
 
     /**
-     * @inheritdoc IGeyserFactory
+     * @inheritdoc ISuperNovaFactory
      */
     function create(
         address stakingToken,
@@ -43,7 +43,7 @@ contract SuperNovaFactory is IGeyserFactory {
             bonusMin,
             bonusMax,
             bonusPeriod,
-            _gysr
+            _supernova
         );
         geyser.transferOwnership(msg.sender);
 
@@ -52,7 +52,7 @@ contract SuperNovaFactory is IGeyserFactory {
         list.push(address(geyser));
 
         // output
-        emit GeyserCreated(msg.sender, address(geyser));
+        emit SuperNovaCreated(msg.sender, address(geyser));
         return address(geyser);
     }
 

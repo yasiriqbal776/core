@@ -1,23 +1,26 @@
+
 /*
-Geyser factory interface
+Supernova Factory 
+This defines the Supernova factory interface
 
-This defines the Geyser factory interface
-
+Credit to: 
+https://github.com/ampleforth/token-geyser
 https://github.com/gysr-io/core
 
 SPDX-License-Identifier: MIT
+
 */
 
 pragma solidity ^0.6.12;
 
 import "@openzeppelin/contracts/token/ERC20/IERC20.sol";
 
-interface IGeyserFactory {
+interface ISuperNovaFactory {
     // events
-    event GeyserCreated(address indexed user, address geyser);
+    event SuperNovaCreated(address indexed user, address geyser);
 
     /**
-     * @notice create a new Geyser
+     * @notice create a new SuperNova
      * @param stakingToken the token that will be staked
      * @param rewardToken the token distributed to users as they unstake
      * @param bonusMin minimum time bonus

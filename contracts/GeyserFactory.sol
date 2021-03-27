@@ -1,11 +1,10 @@
 /*
-Geyser Factory
-
-This implements the Geyser factory contract which allows any user to
-easily configure and deploy their own Geyser
-
+Supernova Factory 
+This implements the core Supernova contract, which allows for generalized staking, yield farming, and token distribution. This also implements the POLAR spending mechanic for boosted reward distribution.
+8:05
+Credit to: 
+https://github.com/ampleforth/token-geyser
 https://github.com/gysr-io/core
-
 SPDX-License-Identifier: MIT
 */
 
@@ -14,7 +13,7 @@ pragma solidity ^0.6.12;
 import "./IGeyserFactory.sol";
 import "./Geyser.sol";
 
-contract GeyserFactory is IGeyserFactory {
+contract SuperNovaFactory is IGeyserFactory {
     // fields
     mapping(address => bool) public map;
     address[] public list;
